@@ -2,10 +2,10 @@ import React from 'react';
 import GrandMilieu from '../components/GrandMilieu';
 
 
-const Annonces =()=>{
+const MesAnnonces =()=>{
     return(
-        <GrandMilieu/>
+    <GrandMilieu/>
     );
 };
-export default Annonces;
+export default MesAnnonces;
 
