@@ -77,11 +77,11 @@ const Milieu = () => {
               {buttons}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginLeft: 450 }}>
-            <div>
-              <p style={{ marginBottom: 0 }}>Iante</p>
+            <div className="inf">
+              <p style={{ marginBottom: 0, marginLeft:-450}}>Iante</p>
                    <Rate
                    character={<HeartFilled />}
-                    style={{ color: rateColor }}
+                    style={{ color: rateColor, marginLeft:-450}}
                     onChange={handleRateChange}
                     value={rateValue}
                     count={1}
@@ -90,9 +90,7 @@ const Milieu = () => {
                 </div>
                 <div style={{ marginLeft: 20 }}>
                   <p style={{ marginBottom: 0 }}>10000000Ar</p>
-                  <Button type="primary" icon={<ShoppingOutlined />} onClick={() => setIsModalVisible(true)}>
-                       Acheter
-                  </Button>
+                  <Button type="primary" icon={<ShoppingOutlined />} onClick={() => setIsModalVisible(true)}>Acheter</Button>
                 </div>
               </div>
 
