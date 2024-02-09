@@ -1,0 +1,11 @@
+  .filtre {
+    margin-left: 30px; /* Ajuste la marge à ta convenance */
+    margin-top: 25px;
+  }  
+  .bottom-right-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px; /* Ajustez la marge selon vos besoins */
+  }
+  
