@@ -15,11 +15,10 @@ function App() {
 
   return (
     <BrowserRouter>
-
       <Layout  style={{ height: '100vh' }}>
         <Entete />
 
-        <Layout style={{ height: '100vvh' }}>
+        <Layout style={{ height: '100vh' }}>
           <Sidebar />
           
           <Layout
@@ -44,7 +43,7 @@ function App() {
 
 
             <Routes>
-              <Route exact path='/Annonce' element={<Annonces />} />
+              <Route exact path='/' element={<Annonces />} />
               <Route exact path='/Log' element={<Log />} />
               <Route exact path='/Favoris' element={<Favoris />} />
               <Route exact path='/MesAnnonces' element={<MesAnnonces />} />
