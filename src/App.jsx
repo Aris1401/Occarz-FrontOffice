@@ -1,16 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Annonces from './pages/Annonces'
 import Entete from './components/Entete'
 import { Breadcrumb, Layout, Menu, Modal } from 'antd'
 import { BrowserRouter, Outlet, Route, Router, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
-import GrandMilieu from './components/GrandMilieu'
-import Login from './pages/Log'
 import Log from './pages/Log'
 import Favoris from './pages/Favoris'
+import MesAnnonces from './pages/MesAnnonces'
+import Mess from './pages/Mess'
 function App() {
   const { Header, Content, Sider } = Layout;
   const [count, setCount] = useState(0)
@@ -49,6 +47,8 @@ function App() {
               <Route exact path='/Annonce' element={<Annonces />} />
               <Route exact path='/Log' element={<Log />} />
               <Route exact path='/Favoris' element={<Favoris />} />
+              <Route exact path='/MesAnnonces' element={<MesAnnonces />} />
+              <Route exact path='/Mess' element={<Mess />} />
             </Routes>
 
             </Content>
