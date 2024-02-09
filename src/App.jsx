@@ -29,28 +29,27 @@ function App() {
               padding: '0 24px 24px',
             }}
           >
-            <Breadcrumb
-              style={{
-                margin: '16px 0',
-              }}
-            >
-              {/* <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item> */}
-            </Breadcrumb>
+          
+          <Breadcrumb
+            style={{
+              margin: '16px 0',
+            }}
+          >
+
+          </Breadcrumb>
             <Content
               style={{
                 padding: 24,
                 margin: 0,
-                // background: colorBgContainer,
-                // borderRadius: borderRadiusLG,
               }}
             >
-              <Routes>
-                <Route exact path='/Annonce' element={<Annonces />} />
-                <Route exact path='/Log' element={<Log />} />
-                <Route exact path='/Favoris' element={<Favoris />} />
-              </Routes>
+
+
+            <Routes>
+              <Route exact path='/Annonce' element={<Annonces />} />
+              <Route exact path='/Log' element={<Log />} />
+              <Route exact path='/Favoris' element={<Favoris />} />
+            </Routes>
 
             </Content>
           </Layout>

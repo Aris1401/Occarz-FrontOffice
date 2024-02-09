@@ -9,41 +9,42 @@ const GrandMilieu = () => {
       console.log(`Option sélectionnée: ${value}`);
    };
 
-   return (
-     <Card title="Grand Milieu" bordered={false}    
+
+return (
+    <Card title="Grand Milieu" bordered={false}    
       style={{
         width: 1000,
         marginLeft: 20,
         height: 800,
         marginTop:1,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <h2 style={{ marginRight: 'auto', marginBottom: 0 }}>Resultat:  1007 Annonces</h2>
-          <div style={{ marginRight: 10 }}> {/* Ajout du div avec la marge à droite */}
-            <Select
-              defaultValue="option1"
-              style={{
-                width: 100,
-              }}
+
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <h2 style={{ marginRight: 'auto', marginBottom: 0 }}>Resultat:  1007 Annonces</h2>
+      <div style={{ marginRight: 10 }}>
+
+      <Select
+        defaultValue="option1"
+        style={{ width: 100}}
               onChange={handleChange}
-            >
-              <Option value="option1">Option 1</Option>
-              <Option value="option2">Option 2</Option>
-            </Select>
-          </div>
-          <Select
+      >
+        <Option value="option1">Option 1</Option>
+        <Option value="option2">Option 2</Option>
+      </Select>
+
+      </div>
+         <Select
             defaultValue="option1"
-            style={{
-              width: 100,
-            }}
+            style={{ width: 100}}
             onChange={handleChange}
           >
             <Option value="option1">Option 1</Option>
             <Option value="option2">Option 2</Option>
           </Select>
-        </div>
+      </div>
+
        <Milieu />
-     </Card>
+    </Card>
    );
 };
 
