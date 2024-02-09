@@ -1,38 +1,33 @@
 import React, { useState } from 'react';
-import { Button, Modal, Input } from 'antd';
+import { Modal, Input, Button } from 'antd';
+import GrandMilieu from '../components/GrandMilieu';
 
 const Login = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
   const handleOk = () => {
-    console.log('Email:', email);
-    console.log('Password:', password);
-    setIsModalOpen(false);
+    // Traitement à effectuer lorsque l'utilisateur clique sur le bouton "Login"
+    setIsModalVisible(false);
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    // Traitement à effectuer lorsque l'utilisateur clique sur le bouton "Cancel" ou en dehors de la modal
+    setIsModalVisible(false);
   };
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
+      <Button type="primary" onClick={() => setIsModalVisible(true)}>Afficher la modal</Button>
+
       <Modal
         title="Login"
-        visible={isModalOpen}
+        visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
         okText="Login"
         cancelText="Cancel"
-        style={{ borderRadius: 10}}
       >
         <div style={{ marginBottom: 16 }}>
           <label>Email:</label>

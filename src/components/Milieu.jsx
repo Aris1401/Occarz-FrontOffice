@@ -76,23 +76,27 @@ const Milieu = () => {
             <div className="bouton" style={{ marginTop: 2 }}>
               {buttons}
             </div>
-            <Descriptions title="Prix:10000000Ar" items={[]} style={{ textAlign: 'center',marginLeft:400,marginTop:10}} />
-            <div style={{ display: 'flex',marginLeft:450, alignItems: 'center', }}>
-              <Button type="primary" icon={<ShoppingOutlined />} onClick={() => setIsModalVisible(true)}>
-                Acheter
-              </Button>
-            </div>
-            <Flex vertical gap="middle">
-              <Rate
-                character={<HeartFilled />}
-                style={{ color: rateColor }}
-                onChange={handleRateChange}
-                value={rateValue}
-                count={1}
-                allowClear
-              />
-            </Flex>
-            <SmileOutlined /> Iante Rak
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginLeft: 450 }}>
+            <div>
+              <p style={{ marginBottom: 0 }}>Iante</p>
+                   <Rate
+                   character={<HeartFilled />}
+                    style={{ color: rateColor }}
+                    onChange={handleRateChange}
+                    value={rateValue}
+                    count={1}
+                    allowClear
+                  />
+                </div>
+                <div style={{ marginLeft: 20 }}>
+                  <p style={{ marginBottom: 0 }}>10000000Ar</p>
+                  <Button type="primary" icon={<ShoppingOutlined />} onClick={() => setIsModalVisible(true)}>
+                       Acheter
+                  </Button>
+                </div>
+              </div>
+
+
           </div>
         </div>
       </div>

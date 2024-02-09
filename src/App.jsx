@@ -8,7 +8,9 @@ import { Breadcrumb, Layout, Menu, Modal } from 'antd'
 import { BrowserRouter, Outlet, Route, Router, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import GrandMilieu from './components/GrandMilieu'
-import Login from './components/Login'
+import Login from './pages/Log'
+import Log from './pages/Log'
+import Favoris from './pages/Favoris'
 function App() {
   const { Header, Content, Sider } = Layout;
   const [count, setCount] = useState(0)
@@ -46,7 +48,8 @@ function App() {
             >
               <Routes>
                 <Route exact path='/Annonce' element={<Annonces />} />
-                <Route exact path='/Login' element={<Login />} />
+                <Route exact path='/Log' element={<Log />} />
+                <Route exact path='/Favoris' element={<Favoris />} />
               </Routes>
 
             </Content>
