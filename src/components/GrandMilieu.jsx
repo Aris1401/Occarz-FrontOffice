@@ -15,7 +15,7 @@ return (
       style={{
         width: 1000,
         marginLeft: 20,
-        height: 800,
+        height: '100%',
         marginTop:1,
       }}>
 

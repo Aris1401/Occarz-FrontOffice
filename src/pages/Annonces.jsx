@@ -4,7 +4,7 @@ import GrandMilieu from '../components/GrandMilieu';
 
 const Annonces =()=>{
     return(
-    <GrandMilieu/>
+        <GrandMilieu/>
     );
 };
 export default Annonces;
