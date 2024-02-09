@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const LOGIN_PAGE = 'connexion1';
+export const LOGIN_PAGE = 'LoginPage';
 
 // Obtenir le token local
 function getLocalAccessToken() {

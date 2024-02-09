@@ -1,15 +1,26 @@
 import axiosInstance from "../api/Api";
+import { getFiltres } from "../filtres/FiltresService";
+
+export const getAllAnnonces = () => {
+    return new Promise((resolve, reject) => {
+        axiosInstance.post("/annonces/", getFiltres()).then((data) => {
+            var response = data.data.data.annoncesFiltrees;
+            resolve(response)
+        }).catch((error) => {
+            // reject(error)
+            // console.log("Vous devez refaire une requete de connexion.");
+        })
+    });
+}
 
 export const getAnnonces = () => {
     return new Promise((resolve, reject) => {
-        axiosInstance.get("/admin/annonces").then((data) => {
-            if (data) {
-                resolve(data.data)
-            } else {
-                reject()
-            }
-        }).catch((err) => {
-            
+        axiosInstance.post("/user/annonces/", getFiltres()).then((data) => {
+            var response = data.data.data.annoncesFiltrees;
+            resolve(response)
+        }).catch((error) => {
+            // reject(error)
+            // console.log("Vous devez refaire une requete de connexion.");
         })
     });
 }

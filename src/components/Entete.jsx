@@ -1,14 +1,15 @@
 import React from 'react';
 import { Layout, Menu, Dropdown } from 'antd';
 import { HeartOutlined, UserOutlined, DownOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const { Header } = Layout;
 
 const menu = (
   <Menu>
-    <Menu.Item key="1">Option 1</Menu.Item>
-    <Menu.Item key="2">Option 2</Menu.Item>
-    <Menu.Item key="3">Option 3</Menu.Item>
+    <Menu.Item key="1"><Link to="/Mess"></Link> Messages</Menu.Item>
+    <Menu.Item key="2">Favoris</Menu.Item>
+    <Menu.Item key="3">Se deconnecter</Menu.Item>
   </Menu>
 );
 

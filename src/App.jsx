@@ -3,7 +3,7 @@ import './App.css'
 import Annonces from './pages/Annonces'
 import Entete from './components/Entete'
 import { Breadcrumb, Layout, Menu, Modal } from 'antd'
-import { BrowserRouter, Outlet, Route, Router, Routes } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Outlet, Route, Router, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 
 import GrandMilieu from './components/GrandMilieu'
@@ -13,12 +13,15 @@ import Log from './pages/Log'
 import Favoris from './pages/Favoris'
 import MesAnnonces from './pages/MesAnnonces'
 import Mess from './pages/Mess'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 function App() {
   const { Header, Content, Sider } = Layout;
   const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Layout  style={{ height: '100vh' }}>
         <Entete />
 
@@ -58,7 +61,7 @@ function App() {
           </Layout>
         </Layout>
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

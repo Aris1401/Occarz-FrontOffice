@@ -9,7 +9,7 @@ export const sendLoginInformations = (loginInfos) => {
             window.localStorage.setItem("accessToken", response.token);
             window.localStorage.setItem("refreshToken", response.refreshToken);
 
-            window.location.href = '/#/statistique';
+            window.location.href = '/#/';
             resolve(response)
         }).catch((error) => {
             reject(error)
