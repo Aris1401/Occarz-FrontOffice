@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { Modal, Input, Button } from 'antd';
-import GrandMilieu from '../components/GrandMilieu';
+
+import { sendLoginInformations } from '../services/auth/AuthServices';
 
 const Login = () => {
+  useEffect(() => {
+    let access = window.localStorage.getItem("accessToken");
+    if (access) window.location.href = "/#/statistique";
+  }, [])
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

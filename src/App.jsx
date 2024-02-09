@@ -5,6 +5,10 @@ import Entete from './components/Entete'
 import { Breadcrumb, Layout, Menu, Modal } from 'antd'
 import { BrowserRouter, Outlet, Route, Router, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
+
+import GrandMilieu from './components/GrandMilieu'
+import LoginPage from './components/LoginPage'
+
 import Log from './pages/Log'
 import Favoris from './pages/Favoris'
 import MesAnnonces from './pages/MesAnnonces'
@@ -41,8 +45,8 @@ function App() {
               }}
             >
 
-
-            <Routes>
+              <Routes>
+                <Route exact path='/LoginPage' element={<LoginPage />}/>
               <Route exact path='/' element={<Annonces />} />
               <Route exact path='/Log' element={<Log />} />
               <Route exact path='/Favoris' element={<Favoris />} />
