@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Select } from 'antd';
 import Milieu from './Milieu';
-import { getAnnonces } from '../services/annonces/AnnoncesServices';
+import { getAllAnnonces, getAnnonces } from '../services/annonces/AnnoncesServices';
 
 const { Option } = Select;
 
-const GrandMilieu = () => {
+const GrandMilieu = (props) => {
 	// Annonces
-	const [ annonces, setAnnoces ] = useState([])
-	const [ resultatsNombre, setResultatsNombre ] = useState(0)
-	useEffect(() => {
-		getAnnonces().then((data) => {
-			setAnnoces(data)
-			setResultatsNombre(data.length)
-		})
-	}, [])
+	const { annonces, resultatsNombre } = props;
 
 	const handleChange = (value) => {
 		console.log(`Option sélectionnée: ${value}`);
@@ -31,8 +24,8 @@ const GrandMilieu = () => {
 			}}>
 
 			<div style={{ display: 'flex', alignItems: 'center' }}>
-				<h6 style={{ marginRight: 'auto', marginBottom: 0 }}>Resultat: { resultatsNombre } Annonces</h6>
-				<div style={{ marginRight: 10 }}>
+				<h6 style={{ marginRight: 'auto', marginBottom: 0 }}>Resultat: { resultatsNombre && resultatsNombre } Annonces</h6>
+				{/* <div style={{ marginRight: 10 }}>
 
 					<Select
 						defaultValue="option1"
@@ -51,11 +44,11 @@ const GrandMilieu = () => {
 				>
 					<Option value="option1">Option 1</Option>
 					<Option value="option2">Option 2</Option>
-				</Select>
+				</Select> */}
 			</div>
 
 			<div style={{ overflowY: 'scroll', height: '100%' }} className='d-flex flex-column gap-1'>
-				{ annonces.map((annonce, index) => {
+				{ annonces && annonces.map((annonce, index) => {
 					return <Milieu annonce= {annonce} />;
 				}) }
 			</div>

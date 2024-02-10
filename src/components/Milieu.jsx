@@ -4,6 +4,8 @@ import { Flex, Rate } from 'antd';
 import { HeartFilled, SmileOutlined, ShoppingOutlined } from '@ant-design/icons';
 import logoImage from '../pages/ok.jpg';
 import Image from '../pages/ok1.jpg';
+import { ajouterAnnoncesDansFavoris } from '../services/annonces/AnnoncesServices';
+import { creerDiscussion } from '../services/messagerie/MessagerieService';
 
 
 const Milieu = ( props ) => {
@@ -19,6 +21,16 @@ const Milieu = ( props ) => {
     const color = value >= 1 ? 'red' : 'black';
     setRateColor(color);
     setRateValue(value);
+
+    if (value == 1) {
+      ajouterAnnoncesDansFavoris(annonce.id).then((data) => {
+
+      }).catch((error) => {
+
+      });
+    } else if (value == 0) {
+
+    }
   };
 
 
@@ -48,7 +60,11 @@ const Milieu = ( props ) => {
   };
 
   const handleContacterVendeur = () => {
+    creerDiscussion(annonce.id).then((data) => {
+      window.location.href = "/#/Mess";
+    }).catch((error) => {
 
+    })
   }
 
   return (

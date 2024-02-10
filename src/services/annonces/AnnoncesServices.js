@@ -25,6 +25,29 @@ export const getAnnonces = () => {
     });
 }
 
+export const getAnnoncesFavoris = () => {
+    return new Promise((resolve, reject) => {
+        axiosInstance.post("/user/annonces/favoris/", getFiltres()).then((data) => {
+            var response = data.data.data.annoncesFiltrees;
+            resolve(response)
+        }).catch((error) => {
+            // reject(error)
+            // console.log("Vous devez refaire une requete de connexion.");
+        })
+    });
+}
+
+export const ajouterAnnoncesDansFavoris = (idAnnonce) => {
+    return new Promise((resolve, reject) => {
+        axiosInstance.post("/user/annonces/favoris/" + idAnnonce).then((data) => {
+            resolve(data)
+        }).catch((error) => {
+            // reject(error)
+            // console.log("Vous devez refaire une requete de connexion.");
+        })
+    });
+}
+
 export const getAnnoncesAvecFiltres = (filtreString) => {
     return new Promise((resolve, reject) => {
         axiosInstance.get("/admin/annonces?" + filtreString).then((data) => {

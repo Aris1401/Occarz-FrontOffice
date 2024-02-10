@@ -7,7 +7,7 @@ const { Search } = Input;
 const { Option } = Select;
 import { obtenirAnneeModele, obtenirBoiteDeVitesse, obtenirCarburant, obtenirCategorie, obtenirMarques, obtenirModeles, obtenirPlaces } from "../services/crud/DetailsService";
 import MenuItem from 'antd/es/menu/MenuItem';
-import { ajouterArrayFiltre, ajouterFiltre } from '../services/filtres/FiltresService';
+import { ajouterArrayFiltre, ajouterFiltre, ajouterFiltreAObjet, effacerFiltres } from '../services/filtres/FiltresService';
 
 
 const Sidebar = () => {
@@ -62,6 +62,7 @@ const Sidebar = () => {
   return (
     <Sider
       width={300}
+      height= {'100vh'}
       style={{ backgroundColor: 'grey' }}
     >
 
@@ -74,6 +75,9 @@ const Sidebar = () => {
 
         <div className="filtre">
           <p>Filtres</p>
+          <Button type='primary' onClick={(e) => {
+            effacerFiltres()
+          }}>Effacer filtres</Button>
         </div>
 
 
@@ -114,7 +118,9 @@ const Sidebar = () => {
 
           <Flex gap="small">
             <Select
-              onChange={handleChange}
+              onChange={(value) => {
+                ajouterFiltreAObjet("marque", value)
+              }}
               size='large'
               style={{ width: '100%' }}
             >
@@ -132,7 +138,9 @@ const Sidebar = () => {
           <Select
             size='large'
             style={{ width: '100%' }}
-            onChange={handleChange}
+            onChange={(value) => {
+              ajouterFiltreAObjet("modele", value)
+            }}
           >
             {modeles.map((item, index) => {
               return (
@@ -148,7 +156,9 @@ const Sidebar = () => {
           <Select
             size='large'
             style={{ width: '100%' }}
-            onChange={handleChange}
+            onChange={(value) => {
+              ajouterFiltreAObjet("anneeModele", value)
+            }}
           >
             {anneeModeles.map((item, index) => {
               return (

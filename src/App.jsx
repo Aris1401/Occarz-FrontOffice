@@ -10,11 +10,11 @@ import GrandMilieu from './components/GrandMilieu'
 import LoginPage from './components/LoginPage'
 
 import Log from './pages/Log'
-import Favoris from './pages/Favoris'
 import MesAnnonces from './pages/MesAnnonces'
 import Mess from './pages/Mess'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import AnnoncesFavoris from './pages/AnnoncesFavoris'
 
 function App() {
   const { Header, Content, Sider } = Layout;
@@ -52,7 +52,7 @@ function App() {
                 <Route exact path='/LoginPage' element={<LoginPage />}/>
               <Route exact path='/' element={<Annonces />} />
               <Route exact path='/Log' element={<Log />} />
-              <Route exact path='/Favoris' element={<Favoris />} />
+              <Route exact path='/Favoris' element={<AnnoncesFavoris />} />
               <Route exact path='/MesAnnonces' element={<MesAnnonces />} />
               <Route exact path='/Mess' element={<Mess />} />
             </Routes>
