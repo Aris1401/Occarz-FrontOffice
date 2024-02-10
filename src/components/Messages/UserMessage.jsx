@@ -2,12 +2,13 @@ import { UserOutlined } from '@ant-design/icons'
 import { Flex, Card, Tag, Avatar } from 'antd'
 import React from 'react'
 
-const UserMessage = () => {
+const UserMessage = (props) => {
+  const { message } = props;
   return (
     <Flex justify='end'>
       <Flex>
           <Tag>
-            This is a message
+            { message }
           </Tag>
           <Avatar size={24} icon={<UserOutlined />} />
       </Flex>

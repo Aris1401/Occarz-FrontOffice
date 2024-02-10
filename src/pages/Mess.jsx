@@ -61,7 +61,7 @@ const Mess = () => {
                         <Flex justify='end' vertical style={{ height: '100%' }} gap={10}>
                             <Flex vertical gap={10} className='message-container' style={{ width: '100%', maxHeight: '500px', height: '500px !important', minHeight: '500px', overflowY: 'scroll' }}>
                                 { messages.map((data, index) => {
-                                    return data;
+                                    return data.monCote ? <UserMessage message={ data.message.message } /> : <OtherMessage message={ data.message.message } />;
                                 }) }
                             </Flex>
 
