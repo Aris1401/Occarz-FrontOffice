@@ -47,7 +47,7 @@ const LoginPage = () => {
             <h2>Connexion</h2>
             <Form
               name="login"
-              initialValues={{ remember: true }}
+              initialValues={{ remember: true, email: "joe@gmail.com", password: 'huhu' }}
               onFinish={onFinish}
             >
               <Form.Item
