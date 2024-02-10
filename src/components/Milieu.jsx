@@ -4,11 +4,11 @@ import { Flex, Rate } from 'antd';
 import { HeartFilled, SmileOutlined, ShoppingOutlined } from '@ant-design/icons';
 import logoImage from '../pages/ok.jpg';
 import Image from '../pages/ok1.jpg';
-import { ajouterAnnoncesDansFavoris } from '../services/annonces/AnnoncesServices';
+import { ajouterAnnoncesDansFavoris, obtenirImagesAnnonce } from '../services/annonces/AnnoncesServices';
 import { creerDiscussion } from '../services/messagerie/MessagerieService';
 
 
-const Milieu = ( props ) => {
+const Milieu = (props) => {
   const [rateColor, setRateColor] = useState('black');
   const [buttonCount, setButtonCount] = useState(4);
   const [rateValue, setRateValue] = useState(0);
@@ -67,6 +67,14 @@ const Milieu = ( props ) => {
     })
   }
 
+  const [images, setImages] = useState([])
+  useEffect(() => {
+    obtenirImagesAnnonce(annonce.id).then((data) => {
+      // console.log(data.data)
+      setImages(data.data);
+    })
+  }, [])
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Card
@@ -80,24 +88,29 @@ const Milieu = ( props ) => {
 
         <div style={{ display: 'flex' }}>
           <Carousel autoplay style={{ width: 300, marginRight: 20 }}>
-            <div> <img src={logoImage} alt="Logo Image" style={{ width: 300, height: 200 }} /> </div>
-            <div> <img src={Image} alt="Image" style={{ width: 300, height: 200 }} /> </div>
+            {images.map((i) => {
+              return JSON.parse(i).images && JSON.parse(i).images.map((image, index) => {
+                return (
+                  <div key={index}> <img src={image} alt="Logo Image" style={{ width: 300, height: 200 }} /> </div>
+                )
+              })
+            })}
           </Carousel>
 
           <div style={{ flex: 1 }}>
             <div className="Information" style={{ marginLeft: 5 }}>
-              <h2>{ annonce && annonce.titre }</h2>
-              <p>{ annonce && annonce.description }</p>
+              <h2>{annonce && annonce.titre}</h2>
+              <p>{annonce && annonce.description}</p>
 
               <div className="bouton" style={{ marginTop: 2 }}> {
                 annonce && annonce.labels.map((label, index) => {
-                  return <Tag key={index} >{ label }</Tag>
+                  return <Tag key={index} >{label}</Tag>
                 })
               } </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 }}>
 
                 <div>
-                  <p>{ annonce && ( annonce.utilisateur.nom + " " + annonce.utilisateur.prenom) }</p>
+                  <p>{annonce && (annonce.utilisateur.nom + " " + annonce.utilisateur.prenom)}</p>
                   <Rate
                     character={<HeartFilled />}
                     style={{ color: rateColor }}
@@ -109,10 +122,10 @@ const Milieu = ( props ) => {
                 </div>
 
                 <div>
-                  <h6>{ annonce && annonce.prix } Ar</h6>
+                  <h6>{annonce && annonce.prix} Ar</h6>
                   <Button type="primary" icon={<ShoppingOutlined />} onClick={(e) => {
                     handleContacterVendeur()
-                  } }>Acheter</Button>
+                  }}>Acheter</Button>
                 </div>
 
               </div>

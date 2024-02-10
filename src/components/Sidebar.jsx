@@ -82,8 +82,11 @@ const Sidebar = () => {
 
 
         <Menu.Item key="1">
-          <Search placeholder="mot cle"
+          <Search placeholder="Mot cle"
             style={{ width: 230 }}
+            onChange={(e) => {
+              ajouterFiltre("motCle", e.target.value)
+            }}
           />
         </Menu.Item>
 
@@ -94,15 +97,17 @@ const Sidebar = () => {
               ajouterFiltre("prixMinimum", e.target.value)
             }}/>
 
-            <Input placeholder='Maximum Prix' />
+            <Input placeholder='Maximum Prix' onChange={(e) => {
+              ajouterFiltre("prixMaximum", e.target.value)
+            }} />
           </div>
         </Menu.Item>
 
 
         <Menu.Item key="3" style={{ display: 'flex', alignItems: 'center', marginTop: 10 }}>
           <div className='d-flex gap-1'>
-            <DatePicker picker='date' />
-            <DatePicker picker='date' />
+            <DatePicker picker='date' onChange={(e) => ajouterFiltre("datePublicationMinimum", new Date(e['$d']).toISOString().split('T')[0])} />
+            <DatePicker picker='date' onChange={(e) => ajouterFiltre("datePublicationMaximum", new Date(e['$d']).toISOString().split('T')[0])} />
           </div>
         </Menu.Item>
 
